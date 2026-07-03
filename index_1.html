@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luoto Experiences — Explore Helsinki's Hidden Islands by Private Boat</title>
+<meta name="description" content="Small-group private boat trips into the Helsinki archipelago. Guided by a local, licensed skipper. Depart from Vuosaari Marina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #10222E;
+    --paper: #F6F4EF;
+    --mist: #DCE6E4;
+    --granite: #6B7570;
+    --amber: #C98A3A;
+    --juniper: #2F4A3E;
+    --hairline: rgba(16, 34, 46, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(246, 244, 239, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .wordmark span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--granite);
+    margin-top: 2px;
+  }
+  .topbar .cta-mini {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 9px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 100px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .topbar .cta-mini:hover { background: var(--ink); color: var(--paper); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 86vh;
+    display: flex;
+    align-items: flex-end;
+    background-color: var(--ink);
+    background-image:
+      linear-gradient(180deg, rgba(16,34,46,0.15) 0%, rgba(16,34,46,0.75) 88%),
+      url('images/hero.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-inner {
+    padding: 80px 0 64px;
+    color: var(--paper);
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    max-width: 14ch;
+    color: var(--paper);
+  }
+  .hero p.sub {
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    color: var(--mist);
+  }
+  .hero-actions {
+    margin-top: 34px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 13px 26px;
+    border-radius: 100px;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .btn-primary { background: var(--amber); color: var(--ink); }
+  .btn-primary:hover { background: #dc9c4c; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(246,244,239,0.5);
+  }
+  .btn-ghost:hover { border-color: var(--paper); }
+
+  /* ---------- Contour divider ---------- */
+  .divider { display: block; width: 100%; height: 40px; }
+  .divider path { fill: none; stroke: var(--hairline); stroke-width: 1; }
+
+  /* ---------- Intro ---------- */
+  .intro {
+    padding: 96px 0 72px;
+  }
+  .intro .grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.5fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .intro .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--juniper);
+  }
+  .intro p {
+    font-size: 1.15rem;
+    color: #2b3a3f;
+    max-width: 58ch;
+  }
+  .intro p + p { margin-top: 18px; }
+  .intro .signoff {
+    margin-top: 26px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+
+  /* ---------- How it goes ---------- */
+  .flow {
+    padding: 64px 0 96px;
+    background: var(--mist);
+  }
+  .flow-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 44px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .flow-head h2 { font-size: 1.9rem; }
+  .flow-head .meta {
+    font-size: 0.9rem;
+    color: var(--granite);
+  }
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .flow-step .mark {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    color: var(--juniper);
+    border-bottom: 1px solid var(--juniper);
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+  .flow-step h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .flow-step p { font-size: 0.95rem; color: #3a4a4a; }
+
+  /* ---------- Gallery ---------- */
+  .gallery {
+    padding: 96px 0;
+  }
+  .gallery h2 { font-size: 1.9rem; margin-bottom: 40px; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-rows: 260px 260px;
+    gap: 14px;
+  }
+  .photo-slot {
+    background-color: var(--mist);
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+  }
+  .g1 { grid-row: 1 / 3; background-image: url('images/gallery-1.jpeg'); }
+  .g2 { background-image: url('images/gallery-2.jpeg'); }
+  .g3 { background-image: url('images/gallery-3.jpeg'); }
+  .g4 { grid-column: 2 / 4; background-image: url('images/gallery-4.jpeg'); }
+
+  /* ---------- Host ---------- */
+  .host {
+    padding: 20px 0 96px;
+  }
+  .host .grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+  .host-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 4px;
+    background-color: var(--mist);
+    background-image: url('images/otto.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .host h2 { font-size: 1.5rem; margin-bottom: 12px; }
+  .host p { color: #2b3a3f; max-width: 56ch; }
+  .host .credentials {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--juniper);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 96px 0 80px;
+  }
+  .contact h2 {
+    color: var(--paper);
+    font-size: 2rem;
+    max-width: 18ch;
+  }
+  .contact .note {
+    margin-top: 14px;
+    color: var(--mist);
+    max-width: 48ch;
+    font-size: 0.98rem;
+  }
+  .contact-methods {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .contact-card {
+    border: 1px solid rgba(246,244,239,0.18);
+    border-radius: 6px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--paper);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-card:hover { border-color: var(--amber); background: rgba(201,138,58,0.08); }
+  .contact-card .k {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .contact-card .v { font-size: 1.05rem; font-weight: 500; }
+
+  /* ---------- Inquiry form ---------- */
+  .inquiry {
+    margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid rgba(246,244,239,0.18);
+  }
+  .inquiry .kicker {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .inquiry h3 {
+    color: var(--paper);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .inquiry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .inquiry-field { display: flex; flex-direction: column; gap: 7px; }
+  .inquiry-field.full { grid-column: 1 / -1; }
+  .inquiry-field label {
+    font-size: 0.78rem;
+    color: var(--mist);
+    font-weight: 500;
+  }
+  .inquiry-field input,
+  .inquiry-field textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    background: rgba(246,244,239,0.06);
+    border: 1px solid rgba(246,244,239,0.22);
+    border-radius: 6px;
+    padding: 11px 13px;
+    color: var(--paper);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .inquiry-field input::placeholder,
+  .inquiry-field textarea::placeholder { color: rgba(246,244,239,0.4); }
+  .inquiry-field input:focus,
+  .inquiry-field textarea:focus { border-color: var(--amber); }
+  .inquiry-field textarea { resize: vertical; min-height: 80px; font-family: inherit; }
+  .inquiry-actions {
+    margin-top: 26px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-send {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    cursor: pointer;
+    padding: 13px 24px;
+    border-radius: 100px;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .btn-send:hover { transform: translateY(-1px); }
+  .btn-send.whatsapp { background: #2F4A3E; color: var(--paper); }
+  .btn-send.whatsapp:hover { background: #395a4b; }
+  .btn-send.email { background: transparent; color: var(--paper); border: 1px solid rgba(246,244,239,0.5); }
+  .btn-send.email:hover { border-color: var(--paper); }
+  .inquiry-hint {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    color: rgba(246,244,239,0.55);
+  }
+
+  @media (max-width: 620px) {
+    .inquiry-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 36px 0;
+    background: var(--ink);
+    border-top: 1px solid rgba(246,244,239,0.12);
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--mist);
+    font-size: 0.82rem;
+  }
+
+  @media (max-width: 760px) {
+    .intro .grid { grid-template-columns: 1fr; gap: 24px; }
+    .flow-steps { grid-template-columns: 1fr; gap: 36px; }
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 180px 180px 180px;
+    }
+    .g1 { grid-row: auto; grid-column: 1 / 3; height: 220px; }
+    .g4 { grid-column: 1 / 3; }
+    .host .grid { grid-template-columns: 1fr; text-align: left; }
+    .host-photo { width: 140px; height: 140px; }
+    .contact-methods { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="wordmark">Luoto Experiences<span>Helsinki Archipelago</span></div>
+      <a class="cta-mini" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Private boat · Small groups · Vuosaari Marina</div>
+      <h1>Explore Helsinki's Hidden Islands by Private Boat</h1>
+      <p class="sub">A small-group trip into the part of the archipelago most visitors never reach - guided by a local, licensed skipper.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Ask about a trip</a>
+        <a class="btn btn-ghost" href="#trip">See how it goes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap grid">
+      <div class="label">The idea</div>
+      <div>
+        <p>I'm Otto and I've been sailing these waters since I was a kid. The Helsinki archipelago is my backyard, and on this trip I take you into the part of it that most visitors never reach.</p>
+        <p>We leave Vuosaari Marina on a small private boat and head out into the archipelago. I choose our destination based on the conditions of the day. On the island, we explore on foot, then sit down to a proper Finnish picnic enjoying some local seasonal produce. No rush.</p>
+        <p class="signoff">This isn't just a tour. It's what I actually do on summer days, and you're invited.</p>
+      </div>
+    </div>
+  </section>
+
+  <svg class="divider" viewBox="0 0 1080 40" preserveAspectRatio="none">
+    <path d="M0,20 C180,5 360,35 540,20 C720,5 900,35 1080,20" />
+  </svg>
+
+  <section class="flow" id="trip">
+    <div class="wrap">
+      <div class="flow-head">
+        <h2>How the trip goes</h2>
+        <div class="meta">2.5–3 hours · 2–6 guests · May–September</div>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="mark">Depart</div>
+          <h3>Vuosaari Marina</h3>
+          <p>A short safety briefing, then we head out onto the water, five minutes walk from Vuosaari Metro.</p>
+        </div>
+        <div class="flow-step">
+          <div class="mark">Explore</div>
+          <h3>An island, chosen on the day</h3>
+          <p>We land and walk the island together to see what the Finnish archipelago really looks like.</p>
+        </div>
+        <div class="flow-step">
+          <div class="mark">Picnic &amp; return</div>
+          <h3>Finnish Picnic</h3>
+          <p>An unhurried Finnish picnic on the rocks, then a boat ride back through the archipelago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="wrap">
+      <h2>On the water</h2>
+      <div class="gallery-grid">
+        <div class="photo-slot g1"></div>
+        <div class="photo-slot g2"></div>
+        <div class="photo-slot g3"></div>
+        <div class="photo-slot g4"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="host">
+    <div class="wrap grid">
+      <div class="host-photo"></div>
+      <div>
+        <h2>Your skipper</h2>
+        <p>I grew up on the water here. The Helsinki archipelago has been my backyard since childhood. I know its hidden coves and best islands across every season. My goal on every trip is simple: show you the Helsinki that I love.</p>
+        <div class="credentials">Licensed boat operator · Commercial passenger certified</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Ready for a trip on the water?</h2>
+      <p class="note">Trips are currently booked directly. Message or call and I'll help you find a date that works.</p>
+      <div class="contact-methods">
+        <a class="contact-card" href="mailto:info@luotoexperiences.com">
+          <span class="k">Email</span>
+          <span class="v">info@luotoexperiences.com</span>
+        </a>
+        <a class="contact-card" href="tel:+358452336929">
+          <span class="k">Phone</span>
+          <span class="v">+358452336929</span>
+        </a>
+        <a class="contact-card" href="https://wa.me/358452336929" target="_blank" rel="noopener">
+          <span class="k">WhatsApp</span>
+          <span class="v">Message on WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="inquiry">
+        <div class="kicker">Or send the details directly</div>
+        <h3>Tell me about the trip you're picturing</h3>
+        <form id="inquiryForm">
+          <div class="inquiry-grid">
+            <div class="inquiry-field">
+              <label for="inqName">Your name</label>
+              <input type="text" id="inqName" placeholder="Jane Smith" required>
+            </div>
+            <div class="inquiry-field">
+              <label for="inqContact">Email or phone</label>
+              <input type="text" id="inqContact" placeholder="jane@email.com" required>
+            </div>
+            <div class="inquiry-field">
+              <label for="inqDates">Preferred dates or timeframe</label>
+              <input type="text" id="inqDates" placeholder="e.g. Aug 12–15, or 'first week of July'" required>
+            </div>
+            <div class="inquiry-field">
+              <label for="inqGuests">Number of guests</label>
+              <input type="text" id="inqGuests" placeholder="e.g. 4" required>
+            </div>
+            <div class="inquiry-field full">
+              <label for="inqNotes">Anything else? (dietary needs, occasion, questions)</label>
+              <textarea id="inqNotes" placeholder="Optional"></textarea>
+            </div>
+          </div>
+          <div class="inquiry-actions">
+            <button type="button" class="btn-send whatsapp" onclick="sendInquiry('whatsapp')">Send on WhatsApp</button>
+            <button type="button" class="btn-send email" onclick="sendInquiry('email')">Send by email</button>
+          </div>
+          <p class="inquiry-hint">Sending opens WhatsApp or your email app with everything filled in — just hit send from there.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function sendInquiry(method) {
+      const name = document.getElementById('inqName').value.trim();
+      const contact = document.getElementById('inqContact').value.trim();
+      const dates = document.getElementById('inqDates').value.trim();
+      const guests = document.getElementById('inqGuests').value.trim();
+      const notes = document.getElementById('inqNotes').value.trim();
+
+      if (!name || !contact || !dates || !guests) {
+        alert('Please fill in your name, contact details, preferred dates, and number of guests.');
+        return;
+      }
+
+      const lines = [
+        `Hi Otto, I'd like to ask about a boat trip.`,
+        ``,
+        `Name: ${name}`,
+        `Contact: ${contact}`,
+        `Preferred dates: ${dates}`,
+        `Guests: ${guests}`,
+        notes ? `Notes: ${notes}` : null
+      ].filter(Boolean).join('\n');
+
+      if (method === 'whatsapp') {
+        const url = `https://wa.me/358452336929?text=${encodeURIComponent(lines)}`;
+        window.open(url, '_blank');
+      } else {
+        const subject = encodeURIComponent('Trip inquiry — ' + name);
+        const body = encodeURIComponent(lines);
+        window.location.href = `mailto:info@luotoexperiences.com?subject=${subject}&body=${body}`;
+      }
+    }
+  </script>
+
+  <footer>
+    <div class="wrap">
+      <div>Luoto Experiences — Vuosaari Marina, Helsinki</div>
+      <div>© 2026</div>
+    </div>
+  </footer>
+
+</body>
+</html>

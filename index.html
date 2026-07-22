@@ -439,7 +439,7 @@
     font-size: 0.98rem;
   }
   .contact-methods {
-    margin-top: 40px;
+    margin-top: 18px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
@@ -462,6 +462,36 @@
     display: block;
   }
   .contact-card .v { font-size: 1.05rem; font-weight: 500; }
+
+  /* ---------- Booking choice ---------- */
+  .booking-choice {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .choice-card {
+    border: 1px solid rgba(246,244,239,0.18);
+    border-radius: 8px;
+    padding: 26px;
+  }
+  .choice-card h3 {
+    color: var(--paper);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .choice-card p {
+    color: var(--mist);
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+  }
+  .choice-card .btn { width: 100%; text-align: center; }
+  .choice-card.airbnb { border-color: rgba(201,138,58,0.5); background: rgba(201,138,58,0.06); }
+
+  @media (max-width: 620px) {
+    .booking-choice { grid-template-columns: 1fr; }
+  }
 
   /* ---------- Inquiry form ---------- */
   .inquiry {
@@ -698,7 +728,21 @@
   <section class="contact" id="contact">
     <div class="wrap">
       <h2>Ready for a trip on the water?</h2>
-      <p class="note">Trips are currently booked directly. Message or call and I'll help you find a date that works.</p>
+      <p class="note">Book however you're most comfortable — message me directly, or book through Airbnb Experiences.</p>
+
+      <div class="booking-choice">
+        <div class="choice-card">
+          <h3>Book directly</h3>
+          <p>Message or call me and I'll help you find a date that works — usually the fastest way to lock in a trip.</p>
+          <a class="btn btn-primary" href="https://wa.me/358452336929" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+        <div class="choice-card airbnb">
+          <h3>Book on Airbnb</h3>
+          <p>Prefer to book and pay through Airbnb? Find the listing and reserve there instead.</p>
+          <a class="btn btn-primary" href="https://airbnb.fi/x/LuotoExperiences" target="_blank" rel="noopener">Book on Airbnb</a>
+        </div>
+      </div>
+
       <div class="contact-methods">
         <a class="contact-card" href="mailto:info@luotoexperiences.com">
           <span class="k">Email</span>
